@@ -1,0 +1,8 @@
+﻿<Window x:Class="ProjetoDeSoftware.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sistema de Predição de Viabilidade de Negócios" Height="402" Width="668">
+    <Grid>
+        <DataGrid AutoGenerateColumns="True" Name="datagrid_dados" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" BorderThickness="10,1,1,1" BorderBrush="White" Margin="24,29,21,39" EnableRowVirtualization="True" GridLinesVisibility="All" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" HorizontalScrollBarVisibility="Auto" AlternatingRowBackground="LightBlue" HorizontalGridLinesBrush="LightGray" VerticalGridLinesBrush="LightGray"  EnableColumnVirtualization="True" VerticalScrollBarVisibility="Disabled" />
+    </Grid>
+</Window>

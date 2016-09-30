@@ -1,8 +1,39 @@
 ﻿<Window x:Class="ProjetoDeSoftware.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Sistema de Predição de Viabilidade de Negócios" Height="402" Width="668">
-    <Grid>
-        <DataGrid AutoGenerateColumns="True" Name="datagrid_dados" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" BorderThickness="10,1,1,1" BorderBrush="White" Margin="24,29,21,39" EnableRowVirtualization="True" GridLinesVisibility="All" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" HorizontalScrollBarVisibility="Auto" AlternatingRowBackground="LightBlue" HorizontalGridLinesBrush="LightGray" VerticalGridLinesBrush="LightGray"  EnableColumnVirtualization="True" VerticalScrollBarVisibility="Disabled" />
+        
+        xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
+        
+        xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+
+        xmlns:charting="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        
+        Title="Sistema de Predição de Viabilidade de Negócios" Height="511.5" Width="1136" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Grid Width="1129" Margin="0,0,0,2">
+        <GroupBox x:Name="groupBox" Header="Filtros" HorizontalAlignment="Left" Height="72" Margin="512,18,0,0" VerticalAlignment="Top" Width="149"/>
+        <Grid Height="284" HorizontalAlignment="Left" Margin="25,192,0,-41" x:Name="grid_graficos" VerticalAlignment="Top" Width="1093">
+
+            <charting:Chart x:Name="grafico_pop" Margin="30,13,727,21">
+                <charting:PieSeries ItemsSource="{Binding}" DependentValuePath="Value" IndependentValuePath="Key" Title="População total" IsSelectionEnabled="True" Margin="10,10,1,10" />
+            </charting:Chart>
+
+            <charting:Chart x:Name="grafico_alf" Margin="392,13,394,17">
+                <charting:PieSeries ItemsSource="{Binding}" DependentValuePath="Value" IndependentValuePath="Key" Title="Número de alfabetizados" IsSelectionEnabled="True" />
+            </charting:Chart>
+
+            <charting:Chart x:Name="grafico_renda" Margin="727,12,79,18">
+                <charting:PieSeries ItemsSource="{Binding}" DependentValuePath="Value" IndependentValuePath="Key" Title="Renda média" IsSelectionEnabled="True" />
+            </charting:Chart>
+
+            <Label Content="População total" Height="33" HorizontalAlignment="Left" Margin="31,13,0,0" x:Name="lb_grafico1" VerticalAlignment="Top" Width="247" FontSize="14" />
+            <Label Content="Número de alfabetizados" FontSize="14" Height="33" HorizontalAlignment="Left" Margin="394,10,0,0" x:Name="lb_grafico2" VerticalAlignment="Top" Width="316" />
+            <Label Content="Renda média mensal" FontSize="14" Height="33" HorizontalAlignment="Left" Margin="727,8,0,0" x:Name="lb_grafico3" VerticalAlignment="Top" Width="247" />
+        </Grid>
+        <Button x:Name="bt_pesquisar" Content="Pesquisar" HorizontalAlignment="Left" Height="22" Margin="463,132,0,0" VerticalAlignment="Top" Width="164" Click="bt_pesquisar_Click"/>
+        <Label Content="Bairro" Height="24" HorizontalAlignment="Left" Margin="350,18,0,0" x:Name="label4" VerticalAlignment="Top" Width="62" />
+        <RadioButton Content="Alfabetizados" Height="16" HorizontalAlignment="Left" Margin="523,63,0,0" x:Name="rd_alf" VerticalAlignment="Top" Width="104" Checked="rd_alf_Checked" />
+        <RadioButton Content="Sexo" Height="16" HorizontalAlignment="Left" Margin="523,44,0,0" x:Name="rd_sexo" VerticalAlignment="Top" Width="104" Checked="rd_sexo_Checked" />
+        <ComboBox x:Name="cb_bairros" HorizontalAlignment="Left" Height="25" Margin="354,39,0,0" VerticalAlignment="Top" Width="132"/>
     </Grid>
 </Window>
